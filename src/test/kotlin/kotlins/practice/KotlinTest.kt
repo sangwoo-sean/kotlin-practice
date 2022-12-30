@@ -35,6 +35,8 @@ class KotlinTest {
         printSum()
         val sumMultiple = sumMultiple(1, 2, 3, 4)
         println("sumMultiple = $sumMultiple")
+
+        highOrder({ x, y -> x + y }, 10, 20)
     }
 
     fun sum(a: Int, b: Int) = a + b
@@ -47,5 +49,8 @@ class KotlinTest {
         return nums.sum()
     }
 
+    fun highOrder(sum: (Int, Int) -> Int, a: Int, b: Int): Int {
+        return sum(a, b)
+    }
 }
 
