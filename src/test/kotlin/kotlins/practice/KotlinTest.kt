@@ -41,6 +41,9 @@ class KotlinTest {
 
         result = highOrder(::sum, 10, 20)
         println(result)
+
+        withArgs("Arg1", "Arg2", { a, b -> "Hello World! $a $b" })
+        withArgs("Arg1", "Arg2") { a, b -> "Hello World! $a $b" } // 함수의 마지막 인자가 람다식인 경우 소괄호 바깥으로 분리 가능
     }
 
     fun sum(a: Int, b: Int) = a + b
@@ -55,6 +58,10 @@ class KotlinTest {
 
     fun highOrder(sum: (Int, Int) -> Int, a: Int, b: Int): Int {
         return sum(a, b)
+    }
+
+    fun withArgs(a: String, b: String, out: (String, String) -> String) {
+        println(out(a, b))
     }
 }
 
