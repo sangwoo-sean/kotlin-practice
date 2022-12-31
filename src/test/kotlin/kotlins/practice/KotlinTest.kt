@@ -49,6 +49,8 @@ class KotlinTest {
         val add2 = fun(x: Int, y: Int): Int = x + y //익명함수
         val add3 = { x: Int, y: Int -> x + y } //익명함수
         println(add(10, 2))
+
+        shortFun(3) { println("Hello")} //inline, noinline
     }
 
     fun sum(a: Int, b: Int) = a + b
@@ -69,6 +71,8 @@ class KotlinTest {
         println(out(a, b))
     }
 
-
+    inline fun shortFun(arg: Int, noinline out: (Int) -> Unit) {
+        out(arg)
+    }
 }
 
