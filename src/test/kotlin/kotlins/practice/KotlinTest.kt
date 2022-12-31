@@ -51,6 +51,10 @@ class KotlinTest {
         println(add(10, 2))
 
         shortFun(3) { println("Hello")} //inline, noinline
+
+        val source = "Test"
+        val target = "Tester"
+        println(source.getLongString(target))
     }
 
     fun sum(a: Int, b: Int) = a + b
@@ -74,5 +78,7 @@ class KotlinTest {
     inline fun shortFun(arg: Int, noinline out: (Int) -> Unit) {
         out(arg)
     }
+
+    fun String.getLongString(target: String): String = if (this.length > target.length) this else target
 }
 
