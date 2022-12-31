@@ -44,6 +44,11 @@ class KotlinTest {
 
         withArgs("Arg1", "Arg2", { a, b -> "Hello World! $a $b" })
         withArgs("Arg1", "Arg2") { a, b -> "Hello World! $a $b" } // 함수의 마지막 인자가 람다식인 경우 소괄호 바깥으로 분리 가능
+
+        val add: (Int, Int) -> Int = fun(x: Int, y: Int): Int = x + y //익명함수
+        val add2 = fun(x: Int, y: Int): Int = x + y //익명함수
+        val add3 = { x: Int, y: Int -> x + y } //익명함수
+        println(add(10, 2))
     }
 
     fun sum(a: Int, b: Int) = a + b
@@ -63,5 +68,7 @@ class KotlinTest {
     fun withArgs(a: String, b: String, out: (String, String) -> String) {
         println(out(a, b))
     }
+
+
 }
 
